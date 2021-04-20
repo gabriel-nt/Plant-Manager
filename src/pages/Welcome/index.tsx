@@ -1,34 +1,35 @@
 import React from 'react';
-import { Text, View, Image, TouchableOpacity } from 'react-native';
 
-import styles from './styles';
 import wateringImg from '../../assets/watering.png';
+
+import {
+  Container,
+  Title,
+  Image,
+  SubTitle,
+  Button,
+  ButtonText,
+} from './styles';
 
 const Welcome = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>
+    <Container>
+      <Title>
         Gerencie {'\n'} suas plantas {'\n'} de forma fácil
-      </Text>
+      </Title>
 
       <Image source={wateringImg} />
 
-      <Text style={styles.subTitle}>
-        Não esqueça mais de regar suas {'\n'} plantas. 
-        Nós cuidamos de lembrar você
-        sempre que precisar.
-      </Text>
+      <SubTitle>
+        Não esqueça mais de regar suas {'\n'} plantas. Nós cuidamos de lembrar
+        você sempre que precisar.
+      </SubTitle>
 
-      <TouchableOpacity 
-        style={styles.button}  
-        activeOpacity={0.8}
-      >
-        <Text style={styles.buttonText}>
-          >
-        </Text>
-      </TouchableOpacity>
-    </View>
+      <Button activeOpacity={0.8}>
+        <ButtonText>`{'>'}`</ButtonText>
+      </Button>
+    </Container>
   );
-}
+};
 
 export default Welcome;
