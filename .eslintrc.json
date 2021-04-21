@@ -44,10 +44,8 @@
     "react/jsx-filename-extension": [1, { "extensions": [".tsx"] }],
     "import/prefer-default-export": "off",
     "prettier/prettier": "error",
-    "no-bitwise": "off",
-    "no-plusplus": "off",
+    "react/require-default-props": "off",
     "react/destructuring-assignment": "off",
-    "react/jsx-one-expression-per-line": "off",
     "import/extensions": [
       "error",
       "ignorePackages",

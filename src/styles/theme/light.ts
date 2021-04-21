@@ -14,5 +14,10 @@ export default {
     blue: '#3D7199',
     blue_light: '#EBF6FF',
     red: '#E83F5B',
-  }
+  },
+  fonts: {
+    text: 'Jost_400Regular',
+    heading: 'Jost_600SemiBold',
+    complement: 'Jost_400Regular',
+  },
 };
