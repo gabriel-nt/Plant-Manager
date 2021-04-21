@@ -19,7 +19,7 @@ const Routes = () => (
           backgroundColor: 'white',
         },
       }}
-      initialRouteName="Welcome"
+      initialRouteName="PlantSelect"
     >
       <AppStack.Screen name="Welcome" component={Welcome} />
       <AppStack.Screen name="SignIn" component={SignIn} />

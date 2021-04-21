@@ -1,10 +1,12 @@
 import React from 'react';
 
-import { Container, ActivityIndicator } from './styles';
+import loadAnimation from '../../assets/load.json';
+
+import { Container, LoadAnimation } from './styles';
 
 const Loader = () => (
   <Container>
-    <ActivityIndicator size="large" color="#2B7A4B" />
+    <LoadAnimation source={loadAnimation} autoPlay loop />
   </Container>
 );
 

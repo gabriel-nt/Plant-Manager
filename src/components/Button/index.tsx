@@ -9,7 +9,7 @@ interface ButtonProps extends TouchableOpacityProps {
 }
 
 const Button = ({ title, isDisabled, ...rest }: ButtonProps) => (
-  <ButtonContainer {...rest} disabled={isDisabled}>
+  <ButtonContainer {...rest} isDisabled={isDisabled}>
     <ButtonText>{title}</ButtonText>
   </ButtonContainer>
 );
