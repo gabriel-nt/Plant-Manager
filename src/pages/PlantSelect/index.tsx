@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { View, FlatList, ActivityIndicator } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import api from '../../services/api';
+import { PlantProps } from '../../dtos';
 import Header from '../../components/Header';
 import Loader from '../../components/Loader';
 import PlantCardPrimary from '../../components/PlantCardPrimary';
@@ -21,20 +23,9 @@ interface EnvironmentProps {
   title: string;
 }
 
-interface PlantProps {
-  id: string;
-  name: string;
-  about: string;
-  water_tips: string;
-  photo: string;
-  environments: Array<string>;
-  frequency: {
-    times: number;
-    repeat_every: string;
-  };
-}
-
 const PlantSelect = () => {
+  const navigation = useNavigation();
+
   const [loading, setLoading] = useState(true);
   const [plants, setPlants] = useState<PlantProps[]>([]);
   const [filteredPlants, setFilteredPlants] = useState<PlantProps[]>([]);
@@ -119,6 +110,13 @@ const PlantSelect = () => {
     setPage(oldValue => oldValue + 1);
   };
 
+  const handlePlantSelect = useCallback(
+    (plant: PlantProps) => {
+      navigation.navigate('PlantSave', { plant });
+    },
+    [navigation],
+  );
+
   if (loading) return <Loader />;
 
   return (
@@ -127,7 +125,7 @@ const PlantSelect = () => {
         <Header />
 
         <Title>Em qual ambiente</Title>
-        <SubTitle>você quer colocar sua planta</SubTitle>
+        <SubTitle>você quer colocar sua planta?</SubTitle>
       </Content>
 
       <View>
@@ -158,7 +156,12 @@ const PlantSelect = () => {
           onEndReached={({ distanceFromEnd }) =>
             handleFetchMore(distanceFromEnd)
           }
-          renderItem={({ item }) => <PlantCardPrimary data={item} />}
+          renderItem={({ item }) => (
+            <PlantCardPrimary
+              data={item}
+              onPress={() => handlePlantSelect(item)}
+            />
+          )}
           ListFooterComponent={
             loadingMore ? (
               <ActivityIndicator color="#32B768" size="large" />

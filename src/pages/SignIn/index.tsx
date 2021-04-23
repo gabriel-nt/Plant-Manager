@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react';
-import { Keyboard, Platform } from 'react-native';
+import { Alert, Keyboard, Platform } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import Button from '../../components/Button';
 
@@ -36,8 +37,17 @@ const SignIn = () => {
   };
 
   const handleSubmitButton = useCallback(() => {
-    if (name) {
+    if (!name) {
+      Alert.alert('Me diz como chamar você 😥');
+      return;
+    }
+
+    try {
+      AsyncStorage.setItem('@plantManager:user', name);
+
       navigation.navigate('Confirmation');
+    } catch {
+      Alert.alert('Não foi possível seu nome 😥');
     }
   }, [name, navigation]);
 
