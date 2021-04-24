@@ -13,6 +13,7 @@ const AuthRoutes = () => {
       tabBarOptions={{
         style: {
           height: Platform.OS === 'ios' ? 88 : 66,
+          paddingVertical: Platform.OS === 'ios' ? 20 : 0,
         },
         labelPosition: 'beside-icon',
         activeTintColor: '#32B768',

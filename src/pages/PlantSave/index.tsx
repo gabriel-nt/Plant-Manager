@@ -78,7 +78,7 @@ const PlantSave = () => {
   }, [navigation, plant, selectedDateTime]);
 
   return (
-    <Container>
+    <Container showsVerticalScrollIndicator={false}>
       <Content>
         <SvgFromUri uri={plant.photo} height={180} width={180} />
         <PlantName>{plant.name}</PlantName>

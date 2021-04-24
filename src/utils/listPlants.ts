@@ -5,7 +5,7 @@ import { PlantProps, StoragePlantProps } from '../dtos';
 
 export async function listPlants(): Promise<PlantProps[]> {
   try {
-    const data = await AsyncStorage.getItem('@plantMananger:plants');
+    const data = await AsyncStorage.getItem('@plantManager:plants');
     const plants = data ? (JSON.parse(data) as StoragePlantProps) : {};
 
     const formattedPlants = Object.keys(plants)

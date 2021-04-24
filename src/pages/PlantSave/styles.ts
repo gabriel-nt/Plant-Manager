@@ -1,9 +1,12 @@
-import { getBottomSpace } from 'react-native-iphone-x-helper';
+import {
+  getBottomSpace,
+  getStatusBarHeight,
+} from 'react-native-iphone-x-helper';
 import styled from 'styled-components/native';
 
 export const Container = styled.ScrollView`
   flex: 1;
-  justify-content: space-between;
+  margin-top: ${getStatusBarHeight()}px;
   background-color: ${({ theme }) => theme.colors.shape};
 `;
 
