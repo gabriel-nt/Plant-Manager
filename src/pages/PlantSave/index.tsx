@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useRoute } from '@react-navigation/native';
+import React, { useCallback, useEffect, useState } from 'react';
+import { useNavigation, useRoute } from '@react-navigation/native';
 import { SvgFromUri } from 'react-native-svg';
 import DateTimePicker, { Event } from '@react-native-community/datetimepicker';
 
@@ -31,6 +31,7 @@ interface ParamsProps {
 
 const PlantSave = () => {
   const route = useRoute();
+  const navigation = useNavigation();
   const { plant } = route.params as ParamsProps;
 
   const [selectedDateTime, setSelectedDateTime] = useState(new Date());
@@ -56,16 +57,25 @@ const PlantSave = () => {
     setShowDatePicker(oldValue => !oldValue);
   };
 
-  const handlePlantSave = async () => {
+  const handlePlantSave = useCallback(async () => {
     try {
       await savePlant({
         ...plant,
         dateNotification: selectedDateTime,
       });
+
+      navigation.navigate('Confirmation', {
+        title: 'Tudo certo',
+        nextScreen: 'AuthRoutes',
+        buttonTitle: 'Muito obrigado :D',
+        icon: 'hug',
+        subTitle:
+          'Fique tranquilo que sempre vamos lembrar você de cuidar da sua plantinha com bastante amor.',
+      });
     } catch (error) {
       Alert.alert('Não foi possível salvar! 😪');
     }
-  };
+  }, [navigation, plant, selectedDateTime]);
 
   return (
     <Container>

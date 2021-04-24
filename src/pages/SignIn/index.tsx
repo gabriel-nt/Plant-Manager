@@ -45,7 +45,14 @@ const SignIn = () => {
     try {
       AsyncStorage.setItem('@plantManager:user', name);
 
-      navigation.navigate('Confirmation');
+      navigation.navigate('Confirmation', {
+        title: 'Prontinho',
+        nextScreen: 'AuthRoutes',
+        buttonTitle: 'Começar',
+        icon: 'smiles',
+        subTitle:
+          'Agora vamos começar a cuidar das suas plantinhas com muito cuidado.',
+      });
     } catch {
       Alert.alert('Não foi possível seu nome 😥');
     }
