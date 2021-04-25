@@ -2,7 +2,7 @@
   <img src="https://github.com/gabriel-nt/Plant-Manager/blob/main/src/assets/git/logo.png" alt="PlantManager" />
 </p>
 <h1 align="center">
-    🚀 Plant Mananger
+    🚀 PlantManager
 </h1>
 <p align="center">Aplicação desenvolvida durante a NLW5 na trilha de React Native</p>
 
@@ -38,9 +38,9 @@ O PlantManger é uma aplicação para ajudar os usuários a lembrarem de cuidar 
 
 ### ✅ Demonstação
 <p>
-  <img src="https://github.com/gabriel-nt/Plant-Manager/blob/main/src/assets/git/home.png" alt="GoRestaurant" width="250"/>
-  <img src="https://github.com/gabriel-nt/Plant-Manager/blob/main/src/assets/git/new-plant.png" alt="GoRestaurant" width="250"/>
-  <img src="https://github.com/gabriel-nt/Plant-Manager/blob/main/src/assets/git/my-plants.png" alt="GoRestaurant" width="250"/>
+  <img src="https://github.com/gabriel-nt/Plant-Manager/blob/main/src/assets/git/home.png" alt="PlantManager" width="250"/>
+  <img src="https://github.com/gabriel-nt/Plant-Manager/blob/main/src/assets/git/new-plant.png" alt="PlantManager" width="250"/>
+  <img src="https://github.com/gabriel-nt/Plant-Manager/blob/main/src/assets/git/my-plants.png" alt="PlantManager" width="250"/>
 </p>
 
 
