@@ -36,7 +36,7 @@
 
 O PlantManger é uma aplicação para ajudar os usuários a lembrarem de cuidar das suas plantas, lembrando-a quando precisa regar a sua planta. Esse Projeto foi desenvolvido durante a semana do Next Level Week 5ª Edição. 
 
-### ✅ Demonstação
+### ✅ Demonstração
 <p>
   <img src="https://github.com/gabriel-nt/Plant-Manager/blob/main/src/assets/git/home.png" alt="PlantManager" width="250"/>
   <img src="https://github.com/gabriel-nt/Plant-Manager/blob/main/src/assets/git/new-plant.png" alt="PlantManager" width="250"/>
