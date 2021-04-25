@@ -89,6 +89,8 @@ Esse projeto foi utilizou das seguintes lib:
 - react-navigation
 - expo-notification
 - expo-font
+- axios
+- date-fns
 - @expo/vector-icons
 - lottie-react-native
 - json-server
