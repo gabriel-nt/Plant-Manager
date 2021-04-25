@@ -4,6 +4,7 @@ import { Feather } from '@expo/vector-icons';
 
 export const ButtonContainer = styled(RectButton)`
   width: 100%;
+  margin-bottom: 12px;
   padding: 25px 16px;
   border-radius: 20px;
   flex-direction: row;

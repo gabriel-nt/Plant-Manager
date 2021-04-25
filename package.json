@@ -7,7 +7,7 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "server": "json-server server.json --host 192.168.0.121 -p 3333 -d 700"
+    "server": "json-server server.json --host 192.168.0.118 -p 3333 -d 700"
   },
   "dependencies": {
     "@expo-google-fonts/jost": "^0.1.0",
