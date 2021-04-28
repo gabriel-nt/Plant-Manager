@@ -10,6 +10,7 @@ export const Container = styled.KeyboardAvoidingView`
   width: 100%;
   align-items: center;
   justify-content: space-around;
+  background: ${({ theme }) => theme.colors.background};
 `;
 
 export const Form = styled.View`

@@ -1,12 +1,8 @@
+import { RectButton } from 'react-native-gesture-handler';
 import styled from 'styled-components/native';
 
-interface ButtonContainerProps {
-  isDisabled: boolean | undefined;
-}
-
-export const ButtonContainer = styled.TouchableOpacity<ButtonContainerProps>`
-  background-color: ${({ theme, disabled }) =>
-    disabled === false ? theme.colors.body_dark : theme.colors.green};
+export const ButtonContainer = styled(RectButton)`
+  background-color: ${({ theme }) => theme.colors.green};
   height: 56px;
   border-radius: 16px;
   justify-content: center;

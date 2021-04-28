@@ -5,6 +5,7 @@ export const Container = styled.View`
   width: 100%;
   align-items: center;
   justify-content: center;
+  background: ${({ theme }) => theme.colors.background};
 `;
 
 export const Emoji = styled.Text`

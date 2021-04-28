@@ -3,7 +3,10 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { PlantProps, StoragePlantProps } from '../dtos';
 
-export async function savePlant(plant: PlantProps): Promise<void> {
+export async function savePlant(
+  plant: PlantProps,
+  isUpdate: boolean,
+): Promise<void> {
   try {
     const now = new Date();
     const nextTime = new Date(plant.dateNotification);
@@ -14,7 +17,7 @@ export async function savePlant(plant: PlantProps): Promise<void> {
       const interval = Math.trunc(7 / times);
       nextTime.setDate(now.getDate() + interval);
     } else {
-      // nextTime.setDate(nextTime.getDate() + 1);
+      nextTime.setDate(nextTime.getDate() + 1);
     }
 
     const seconds = Math.abs(
@@ -40,6 +43,12 @@ export async function savePlant(plant: PlantProps): Promise<void> {
     const data = await AsyncStorage.getItem('@plantManager:plants');
     const oldPlants = data ? (JSON.parse(data) as StoragePlantProps) : {};
 
+    if (isUpdate) {
+      await Notifications.cancelScheduledNotificationAsync(
+        oldPlants[plant.id].notificationId,
+      );
+    }
+
     const newPlant = {
       [plant.id]: {
         data: plant,
@@ -50,8 +59,8 @@ export async function savePlant(plant: PlantProps): Promise<void> {
     await AsyncStorage.setItem(
       '@plantManager:plants',
       JSON.stringify({
-        ...newPlant,
         ...oldPlants,
+        ...newPlant,
       }),
     );
   } catch (error) {

@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
+import { Alert, FlatList, View } from 'react-native';
 import { formatDistance } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
-import { Alert, FlatList } from 'react-native';
 
 import waterDrop from '../../assets/waterdrop.png';
 
@@ -18,11 +19,15 @@ import {
   Hint,
   HintImage,
   HintText,
+  PlantContainer,
   Plants,
   PlantsTitle,
 } from './styles';
+import ToggleInput from '../../components/ToggleInput';
 
 const MyPlants = () => {
+  const navigation = useNavigation();
+
   const [loading, setLoading] = useState(true);
   const [plants, setPlants] = useState<PlantProps[]>();
   const [nextWatered, setNextWatered] = useState<string>();
@@ -57,27 +62,21 @@ const MyPlants = () => {
   }, []);
 
   const handleRemove = useCallback(async (plant: PlantProps) => {
-    Alert.alert('Remover', `Deseja remover a ${plant.name}?`, [
-      {
-        text: 'Não',
-        style: 'cancel',
-      },
-      {
-        text: 'Sim',
-        onPress: async () => {
-          try {
-            await removePlant(plant.id);
+    try {
+      await removePlant(plant.id);
 
-            setPlants(oldValue =>
-              oldValue?.filter(item => item.id !== plant.id),
-            );
-          } catch (e) {
-            Alert.alert('Não foi possível remover');
-          }
-        },
-      },
-    ]);
+      setPlants(oldValue => oldValue?.filter(item => item.id !== plant.id));
+    } catch (e) {
+      Alert.alert('Não foi possível remover');
+    }
   }, []);
+
+  const handleUpdate = useCallback(
+    async (plant: PlantProps) => {
+      navigation.navigate('PlantSave', { plant });
+    },
+    [navigation],
+  );
 
   if (loading) return <Loader />;
 
@@ -92,7 +91,10 @@ const MyPlants = () => {
       </Hint>
 
       <Plants>
-        <PlantsTitle>Próximas Regadas</PlantsTitle>
+        <PlantContainer>
+          <PlantsTitle>Próximas Regadas</PlantsTitle>
+          <ToggleInput />
+        </PlantContainer>
 
         <FlatList
           data={plants}
@@ -103,6 +105,7 @@ const MyPlants = () => {
               handleRemove={() => {
                 handleRemove(item);
               }}
+              onPress={() => handleUpdate(item)}
             />
           )}
           showsVerticalScrollIndicator={false}

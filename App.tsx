@@ -10,8 +10,10 @@ import {
 
 import Routes from './src/routes/routes';
 import Loader from './src/components/Loader';
-import theme from './src/styles/theme/light';
+
 import { PlantProps } from './src/dtos';
+import light from './src/styles/theme/light';
+import { CustomThemeProvider } from './src/hooks/theme';
 
 const App = () => {
   const [fontsLoaded] = useFonts({ Jost_400Regular, Jost_600SemiBold });
@@ -39,16 +41,16 @@ const App = () => {
 
   if (!fontsLoaded) {
     return (
-      <ThemeProvider theme={theme}>
+      <ThemeProvider theme={light}>
         <Loader />
       </ThemeProvider>
     );
   }
 
   return (
-    <ThemeProvider theme={theme}>
+    <CustomThemeProvider>
       <Routes />
-    </ThemeProvider>
+    </CustomThemeProvider>
   );
 };
 

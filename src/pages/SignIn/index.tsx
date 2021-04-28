@@ -2,6 +2,7 @@ import React, { useCallback, useState } from 'react';
 import { Alert, Keyboard, Platform } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { useTheme } from 'styled-components';
 
 import Button from '../../components/Button';
 
@@ -16,6 +17,7 @@ import {
 } from './styles';
 
 const SignIn = () => {
+  const theme = useTheme();
   const navigation = useNavigation();
 
   const [name, setName] = useState<string>();
@@ -69,17 +71,14 @@ const SignIn = () => {
             isFilled={isFilled}
             isFocused={isFocused}
             placeholder="Digite um nome"
+            placeholderTextColor={theme.colors.heading}
             onBlur={handleInputBlur}
             onFocus={handleInputFocus}
             onChangeText={handleInputChange}
           />
 
           <Footer>
-            <Button
-              onPress={handleSubmitButton}
-              title="Confirmar"
-              isDisabled={!!name}
-            />
+            <Button onPress={handleSubmitButton} title="Confirmar" />
           </Footer>
         </Form>
       </Content>

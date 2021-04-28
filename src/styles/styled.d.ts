@@ -8,8 +8,9 @@ declare module 'styled-components' {
       green_dark: string;
       green_light: string;
       heading: string;
-      body_dark: string;
-      body_light: string;
+      body_home: string;
+      text: string;
+      text_light: string;
       background: string;
       shape: string;
       white: string;
@@ -17,6 +18,8 @@ declare module 'styled-components' {
       blue: string;
       blue_light: string;
       red: string;
+      background_controller: string;
+      overlay: string;
     };
     fonts: {
       heading: string;

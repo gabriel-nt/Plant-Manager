@@ -1,0 +1,26 @@
+export default {
+  title: 'dark',
+  colors: {
+    green: '#50bc78',
+    green_dark: '#1a905d',
+    green_light: '#FFFFFF',
+    heading: '#FFFFFF',
+    text: '#FFFFFF',
+    text_light: '#FFFFFF',
+    background: '#1f3148',
+    body_home: '#1f3148',
+    shape: '#224067',
+    white: '#FFFFFF',
+    gray: '#738078',
+    blue: '#3D7199',
+    blue_light: '#EBF6FF',
+    red: '#E83F5B',
+    background_controller: '#1f3148',
+    overlay: 'rgba(255,255,255,0.5)',
+  },
+  fonts: {
+    text: 'Jost_400Regular',
+    heading: 'Jost_600SemiBold',
+    complement: 'Jost_400Regular',
+  },
+};

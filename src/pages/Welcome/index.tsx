@@ -2,6 +2,7 @@ import { useNavigation } from '@react-navigation/native';
 import React, { useCallback } from 'react';
 
 import wateringImg from '../../assets/watering.png';
+import ToggleInput from '../../components/ToggleInput';
 
 import {
   Container,
@@ -25,6 +26,8 @@ const Welcome = () => {
       <Title>
         Gerencie {'\n'} suas plantas {'\n'} de forma fácil
       </Title>
+
+      <ToggleInput />
 
       <Image source={wateringImg} resizeMode="contain" />
 

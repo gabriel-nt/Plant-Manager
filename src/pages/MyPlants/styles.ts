@@ -8,6 +8,11 @@ export const Container = styled.View`
   background: ${({ theme }) => theme.colors.background};
 `;
 
+export const PlantContainer = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
 export const Hint = styled.View`
   padding: 20px;
   border-radius: 20px;

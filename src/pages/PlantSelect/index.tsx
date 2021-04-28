@@ -16,7 +16,12 @@ import {
   SubTitle,
   EnvironmentList,
   Plants,
+  TitleContainer,
+  TitleContent,
+  ThemeContainer,
 } from './styles';
+
+import ToggleInput from '../../components/ToggleInput';
 
 interface EnvironmentProps {
   key: string;
@@ -124,8 +129,15 @@ const PlantSelect = () => {
       <Content>
         <Header />
 
-        <Title>Em qual ambiente</Title>
-        <SubTitle>você quer colocar sua planta?</SubTitle>
+        <TitleContainer>
+          <TitleContent>
+            <Title>Em qual ambiente</Title>
+            <SubTitle>você quer colocar sua planta?</SubTitle>
+          </TitleContent>
+          <ThemeContainer>
+            <ToggleInput />
+          </ThemeContainer>
+        </TitleContainer>
       </Content>
 
       <View>

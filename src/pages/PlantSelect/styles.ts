@@ -9,6 +9,19 @@ export const Content = styled.View`
   padding: 0 30px;
 `;
 
+export const TitleContainer = styled.View`
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const TitleContent = styled.View`
+  flex-direction: column;
+`;
+
+export const ThemeContainer = styled.View`
+  align-self: flex-end;
+`;
+
 export const Title = styled.Text`
   font-size: 17px;
   margin-top: 15px;

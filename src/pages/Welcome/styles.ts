@@ -6,6 +6,7 @@ export const Container = styled.View`
   padding: 12px 12px;
   align-items: center;
   justify-content: space-around;
+  background-color: ${({ theme }) => theme.colors.body_home};
 `;
 
 export const Title = styled.Text`
@@ -24,7 +25,7 @@ export const SubTitle = styled.Text`
   font-size: 17px;
   line-height: 25px;
   text-align: center;
-  color: ${({ theme }) => theme.colors.body_dark};
+  color: ${({ theme }) => theme.colors.text};
   font-family: ${({ theme }) => theme.fonts.text};
 `;
 

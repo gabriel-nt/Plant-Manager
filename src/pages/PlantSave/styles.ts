@@ -36,7 +36,7 @@ export const PlantAbout = styled.Text`
 export const Controller = styled.View`
   padding: 20px;
   padding-bottom: ${getBottomSpace() || 20}px;
-  background-color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.background_controller};
 `;
 
 export const Hint = styled.View`

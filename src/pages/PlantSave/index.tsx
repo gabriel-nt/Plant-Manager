@@ -34,8 +34,10 @@ const PlantSave = () => {
   const navigation = useNavigation();
   const { plant } = route.params as ParamsProps;
 
-  const [selectedDateTime, setSelectedDateTime] = useState(new Date());
   const [showDatePicker, setShowDatePicker] = useState(Platform.OS === 'ios');
+  const [selectedDateTime, setSelectedDateTime] = useState(
+    plant.dateNotification ? new Date(plant.dateNotification) : new Date(),
+  );
 
   const handleChangeTime = (_: Event, dateTime: Date | undefined) => {
     if (Platform.OS === 'android') {
@@ -59,10 +61,13 @@ const PlantSave = () => {
 
   const handlePlantSave = useCallback(async () => {
     try {
-      await savePlant({
-        ...plant,
-        dateNotification: selectedDateTime,
-      });
+      await savePlant(
+        {
+          ...plant,
+          dateNotification: selectedDateTime,
+        },
+        !!plant.dateNotification,
+      );
 
       navigation.navigate('Confirmation', {
         title: 'Tudo certo',
@@ -113,7 +118,12 @@ const PlantSave = () => {
           </DateTimePickerButton>
         )}
 
-        <Button title="Cadastrar planta" onPress={handlePlantSave} />
+        <Button
+          onPress={handlePlantSave}
+          title={
+            plant.dateNotification ? 'Atualizar planta' : 'Cadastrar planta'
+          }
+        />
       </Controller>
     </Container>
   );
