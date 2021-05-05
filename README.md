@@ -30,6 +30,8 @@
 - [x] Filtragem das plantas
 - [x] Cadastro de plantas 
 - [x] Exclusão de plantas
+- [x] Update de Plantas
+- [x] Dark Theme
 - [x] Notificações
 
 ### 💻 Projeto
