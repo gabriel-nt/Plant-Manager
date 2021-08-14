@@ -34,6 +34,7 @@ const App = () => {
       },
     );
 
+    // Cancel schedulers
     // await Notifications.cancelAllScheduledNotificationsAsync();
 
     return () => subscription.remove();
